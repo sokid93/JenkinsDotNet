@@ -29,7 +29,7 @@ pipeline {
                 bat """
                     dotnet publish --configuration Release --no-build --output "Publish" --framework net6.0
                 """
-                archiveArtifacts artifacts: 'Publish/*/', fingerprint: true
+                archiveArtifacts artifacts: 'Publish/**/*', fingerprint: true
             }
         }
     }
