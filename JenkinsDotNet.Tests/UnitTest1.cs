@@ -5,6 +5,7 @@ public class Tests
     [Test]
     public void PassingTest()
     {
-        Assert.Pass();
+        Assert.Fail();
+        
     }
 }
