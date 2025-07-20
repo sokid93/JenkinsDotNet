@@ -9,11 +9,7 @@ pipeline {
             }
         }
       
-        stage ('Test') {
-            steps {
-                bat "dotnet test --configuration Release --no-build --logger trx --results-directory TestResults"
-            }
-        }
+        
         stage('Restore') {
             steps {
                 bat "dotnet restore"
@@ -22,6 +18,11 @@ pipeline {
         stage('Build') {
             steps {
                 bat "dotnet build --configuration Release --no-restore"
+            }
+        }
+        stage ('Test') {
+            steps {
+                bat "dotnet test --configuration Release --no-build --logger trx --results-directory TestResults"
             }
         }
         stage('Publish') {
